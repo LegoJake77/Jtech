@@ -30,30 +30,32 @@ public class ExampleAddon extends JavaPlugin implements SlimefunAddon {
         // More info: https://bstats.org/getting-started
         // Set bStatsId to the id of your plugin
         int bStatsId = -1;
-        new Metrics(this, bStatsId);
+        new Metrics(this, 7221);
 
         // Create a new Category
         // This Category will use this ItemStack
-        ItemStack categoryItem = new CustomItem(Material.DIAMOND, "&4Addon Category", "", "&a> Click to open");
+        ItemStack categoryItem = new CustomItem(Material.DIAMOND, "&4J-tech", "", "&a> Click to open");
 
         // Give your Category a unique id.
-        NamespacedKey categoryId = new NamespacedKey(this, "addon_category");
+        NamespacedKey categoryId = new NamespacedKey(this, "jtech");
         Category category = new Category(categoryId, categoryItem);
 
         // Create a new Slimefun ItemStack
         // This class has many constructors, it is very important that you give each item a unique id.
-        SlimefunItemStack slimefunItem = new SlimefunItemStack("COOL_DIAMOND", Material.DIAMOND, "&4Cool Diamond", "&c+20% Coolness");
+        SlimefunItemStack slimefunItem = new SlimefunItemStack("TEST_ITEM", Material.CAKE, "&4Test Item", "&c+20% Coolness");
 
         // The Recipe is an ItemStack Array with a length of 9.
         // It represents a Shaped Recipe in a 3x3 crafting grid
         // The machine in which this recipe is crafted in is specified further down
-        ItemStack[] recipe = { new ItemStack(Material.EMERALD), null, new ItemStack(Material.EMERALD), null, new ItemStack(Material.DIAMOND), null, new ItemStack(Material.EMERALD), null, new ItemStack(Material.EMERALD) };
+        ItemStack[] recipe = { new ItemStack(Material.EMERALD), null, new ItemStack(Material.EMERALD),
+        					   null, new ItemStack(Material.SUGAR), null,
+        					   new ItemStack(Material.EMERALD), null, new ItemStack(Material.EMERALD) };
 
         // Now you just have to register the item
         // RecipeType.ENHANCED_CRAFTING_TABLE refers to the machine in which this item is crafted in.
         // Recipy Types from Slimefun itself will automatically add the recipe to that machine
-        SlimefunItem item = new SlimefunItem(category, slimefunItem, RecipeType.ENHANCED_CRAFTING_TABLE, recipe);
-        item.register(this);
+        FireCake cake = new FireCake(category, itemStack, RecipeType.ENHANCED_CRAFTING_TABLE, recipe);
+        cake.register(this);
     }
 
     @Override
