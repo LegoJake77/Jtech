@@ -1,4 +1,4 @@
-package me.CHANGEME.slimefunaddon;
+package me.LegoJake77.jtech;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
